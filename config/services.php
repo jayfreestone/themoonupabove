@@ -40,4 +40,8 @@ return [
         ],
     ],
 
+    'typekit' => [
+        'project_id' => env('TYPEKIT_PROJECT_ID'),
+    ],
+
 ];

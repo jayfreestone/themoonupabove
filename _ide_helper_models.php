@@ -14,8 +14,17 @@ namespace App{
 /**
  * App\Product
  *
+ * @property-read \App\ProductCategory $category
  */
 	class Product extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Stock
+ *
+ */
+	class Stock extends \Eloquent {}
 }
 
 namespace App{
@@ -26,5 +35,21 @@ namespace App{
  * @mixin \Eloquent
  */
 	class User extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Location
+ *
+ */
+	class Location extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\ProductCategory
+ *
+ */
+	class ProductCategory extends \Eloquent {}
 }
 

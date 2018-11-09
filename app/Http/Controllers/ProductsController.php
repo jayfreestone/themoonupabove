@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Stock;
+use App\Location;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -26,7 +28,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('products.create', [
+            'locations' => Location::all(),
+        ]);
     }
 
     /**
@@ -42,7 +46,28 @@ class ProductsController extends Controller
             'price' => ['required', 'numeric'],
         ]);
 
-        Product::create($attributes);
+        $product = Product::create($attributes);
+
+        $stock_fields = Location::all()
+            ->pluck('id')
+            ->map(function ($id) {
+                return [
+                    'id' => $id,
+                    'field_name' => "stock-{$id}",
+                ];
+            });
+
+        $product_id = $product->id;
+
+        $stock_fields->each(function($stock_entry) use ($request, $product_id) {
+            $request->validate([ $stock_entry['field_name'] => ['numeric'] ]);
+
+            Stock::create([
+                'product_id'  => $product_id,
+                'location_id' => $stock_entry['id'],
+                'quantity'    => $request->input($stock_entry['field_name']),
+            ]);
+        });
 
         return redirect('/products');
     }

@@ -15,6 +15,13 @@
                     @endif
                 </h3>
                 £{{ $product->price }}
+
+                @if ($product->stock)
+                    @foreach($product->stock as $stock)
+                        In stock at {{ $stock->location_name }} ({{ $stock->quantity }})
+                    @endforeach
+                @endif
+
                 <a href="/products/{{ $product->id }}/edit" class="link ml2 f6">
                     Edit
                 </a>
