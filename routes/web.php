@@ -19,7 +19,7 @@ Route::get('/products/{product}/delete', 'ProductsController@delete');
 Route::resource('/products', 'ProductsController');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'account'], function () {
-    Route::resource('/orders', 'OrdersController');
+    Route::resource('/orders', 'OrdersController')->middleware('can:update,order');
 });
 
 Auth::routes();

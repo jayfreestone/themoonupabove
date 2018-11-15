@@ -8,7 +8,9 @@
             @foreach($orders as $order)
                 <li>
                     <h3>
-                        Order {{ $order->id }}
+                        <a href="/account/orders/{{ $order->id }}">
+                            Order {{ $order->id }}
+                        </a>
                     </h3>
                     @if ($order->items)
                         <ul>

@@ -44,12 +44,14 @@ class OrdersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        return view('orders.view', [
+            'order' => $order,
+        ]);
     }
 
     /**
