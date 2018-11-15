@@ -18,6 +18,10 @@ Route::get('/contact', 'Pages@contact');
 Route::get('/products/{product}/delete', 'ProductsController@delete');
 Route::resource('/products', 'ProductsController');
 
+Route::group(['middleware' => ['auth'], 'prefix' => 'account'], function () {
+    Route::resource('/orders', 'OrdersController');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
