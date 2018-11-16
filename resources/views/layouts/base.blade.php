@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css" />
     </head>
     <body class="pa5 sans-serif">
+        @include('partials/header')
         <nav>
             <ul class="pl0 mt0 mb4">
                 <li class="dib mr3">

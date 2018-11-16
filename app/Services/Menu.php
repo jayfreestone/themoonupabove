@@ -1,15 +1,20 @@
 <?php
 
+namespace App\Services;
+
 class Menu {
     private $items;
 
-    public function __construct($items)
-    {
-        $this->items = $items;
-    }
-
     public function getItems()
     {
-        return $this->getItems();
+        return $this->items;
+    }
+
+    public function addItem($routeName, $label)
+    {
+        $this->items[$routeName] = [
+            'route' => $routeName,
+            'label' => $label,
+        ];
     }
 }

@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'Pages@home');
-Route::get('/about', 'Pages@about');
-Route::get('/contact', 'Pages@contact');
+Route::get('/about', 'Pages@about')->name('about');
+Route::get('/contact', 'Pages@contact')->name('contact');
 
 Route::get('/products/{product}/delete', 'ProductsController@delete');
 Route::resource('/products', 'ProductsController');
