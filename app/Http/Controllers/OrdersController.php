@@ -49,6 +49,8 @@ class OrdersController extends Controller
      */
     public function show(Order $order)
     {
+        $this->authorize('update', $order);
+
         return view('orders.view', [
             'order' => $order,
         ]);

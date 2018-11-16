@@ -13,7 +13,7 @@
                     <a class="link dim black b" href="/">MUA</a>
                 </li>
                 <li class="dib mr3">
-                    <a class="link dim gray" href="/products">Shop</a>
+                    <a class="link dim gray" href="{{ route('products.index') }}">Shop</a>
                 </li>
                 <li class="dib mr3">
                     <a class="link dim gray" href="/about">About</a>
