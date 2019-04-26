@@ -1,8 +1,13 @@
 @if($menus->getMenu('primary')->getItems())
-    @foreach($menus->getMenu('primary')->getItems() as $menuItem)
-        x
-        {{--<a href="{{ route($menuItem['']) }}">--}}
-
-        {{--</a>--}}
-    @endforeach
+    <nav>
+        <ul>
+            @foreach($menus->getMenu('primary')->getItems() as $menuItem)
+                <li>
+                    <a href="{{ route($menuItem['route']) }}">
+                        {{ $menuItem['label'] }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </nav>
 @endif
